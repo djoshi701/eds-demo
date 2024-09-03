@@ -151,9 +151,9 @@ export default async function decorate(block) {
   block.prepend(container);
 
 
-  // if (eagerLoading) {
-  //   // slidesWrapper.firstChild.querySelector("div > picture > img").setAttribute('loading', 'eager');
-  // }
+  if (eagerLoading) {
+    slidesWrapper.firstChild.querySelector("div > picture > img").setAttribute('loading', 'eager');
+  }
 
   if (!isSingleSlide) {
     bindEvents(block);
