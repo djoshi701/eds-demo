@@ -195,7 +195,11 @@ const Picker = props => {
             // Get configs and select default config
             let configs = {};
             try {
-                configs = await fetch(configFile).then(r => r.json());
+                configs = {
+                    dev: await fetch(configFile).then(r => r.json()),
+                    stage: await fetch(configFile).then(r => r.json()),
+                    prod: await fetch(configFile).then(r => r.json()),
+                }
             } catch (err) {
                 console.error(err);
                 setState(state => ({
