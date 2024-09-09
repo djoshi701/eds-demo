@@ -9,7 +9,11 @@ import Settings from '@spectrum-icons/workflow/Settings';
 
 
 const Picker = props => {
-    const { blocks, getItems, getCategories, configFile, defaultConfig } = props;
+    const { blocks, getItems, getCategories, defaultConfig } = props;
+
+    const configFile = '/configs.json';
+    const configFileStage = '/configs-stage.json';
+    const configFileDev = '/configs-dev.json';
 
     const [state, setState] = useState({
         items: {},
@@ -196,8 +200,8 @@ const Picker = props => {
             let configs = {};
             try {
                 configs = {
-                    dev: await fetch(configFile).then(r => r.json()),
-                    stage: await fetch(configFile).then(r => r.json()),
+                    dev: await fetch(configFileDev).then(r => r.json()),
+                    stage: await fetch(configFileStage).then(r => r.json()),
                     prod: await fetch(configFile).then(r => r.json()),
                 }
             } catch (err) {

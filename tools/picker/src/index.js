@@ -7,7 +7,6 @@ import getProductsInCategory from './queries/products.graphql.js';
 
 import './styles.css';
 
-const configFile = '/configs.json';
 const defaultConfig = 'prod';
 
 /**
@@ -183,6 +182,5 @@ if (app) {
         blocks={blocks}
         getCategories={getCategories}
         getItems={getItems}
-        configFile={configFile}
         defaultConfig={defaultConfig} />, app);
 }
