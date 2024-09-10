@@ -11,10 +11,6 @@ import Settings from '@spectrum-icons/workflow/Settings';
 const Picker = props => {
     const { blocks, getItems, getCategories, defaultConfig } = props;
 
-    const configFile = '/configs.json';
-    const configFileStage = '/configs-stage.json';
-    const configFileDev = '/configs-dev.json';
-
     const [state, setState] = useState({
         items: {},
         configs: {},
@@ -199,10 +195,19 @@ const Picker = props => {
             // Get configs and select default config
             let configs = {};
             try {
+                const finalConf = selectedConfig ?? defaultConfig
+
+                let confFile = '/configs.json';
+                if (finalConf !== 'prod') {
+                    confFile = '/configs-'+finalConf+'.json';
+                }
+
+                const envConfs = await fetch(confFile).then(r => r.json());
+
                 configs = {
-                    dev: await fetch(configFileDev).then(r => r.json()),
-                    stage: await fetch(configFileStage).then(r => r.json()),
-                    prod: await fetch(configFile).then(r => r.json()),
+                    dev: envConfs,
+                    stage: envConfs,
+                    prod: envConfs
                 }
             } catch (err) {
                 console.error(err);
@@ -248,7 +253,7 @@ const Picker = props => {
                 },
             }));
         })();
-    }, []);
+    }, [selectedConfig]);
 
     useEffect(() => {
         (async () => {
