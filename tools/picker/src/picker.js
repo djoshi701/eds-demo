@@ -202,15 +202,12 @@ const Picker = props => {
                 const prodConfig = fetch(confFile).then(r => r.json());
                 const stageConfig = fetch(confFileStage).then(r => r.json());
                 const devConfig = fetch(confFileDev).then(r => r.json());
-                await Promise.all([prodConfig, stageConfig, devConfig])
-                  .catch(error => {
-                      console.error(error);
-                  });
+                let [prod, stage, dev] = await Promise.all([prodConfig, stageConfig, devConfig]);
 
                 configs = {
-                    dev: devConfig,
-                    stage: stageConfig,
-                    prod: prodConfig
+                    dev: prod,
+                    stage: stage,
+                    prod: dev
                 }
             } catch (err) {
                 console.error(err);
