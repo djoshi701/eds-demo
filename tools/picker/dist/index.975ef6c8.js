@@ -23958,7 +23958,7 @@ const Picker = (props)=>{
             // Get configs and select default config
             let configs = {};
             try {
-                const finalConf = selectedConfig1 ?? defaultConfig;
+                const finalConf = state.selectedConfig ?? defaultConfig;
                 let confFile = "/configs.json";
                 if (finalConf !== "prod") confFile = "/configs-" + finalConf + ".json";
                 const envConfs = await fetch(confFile).then((r)=>r.json());
@@ -23987,12 +23987,12 @@ const Picker = (props)=>{
                 });
                 configs[key] = values;
             });
-            const selectedConfig1 = defaultConfig || Object.keys(configs)[0];
-            const rootCategoryKey = configs[selectedConfig1]["commerce-root-category-id"];
+            const selectedConfig = defaultConfig || Object.keys(configs)[0];
+            const rootCategoryKey = configs[selectedConfig]["commerce-root-category-id"];
             setState((state)=>({
                     ...state,
                     configs,
-                    selectedConfig: selectedConfig1,
+                    selectedConfig,
                     folder: rootCategoryKey,
                     path: [],
                     categories: {},
@@ -24007,7 +24007,7 @@ const Picker = (props)=>{
                 }));
         })();
     }, [
-        selectedConfig
+        state.selectedConfig
     ]);
     (0, _react.useEffect)(()=>{
         (async ()=>{

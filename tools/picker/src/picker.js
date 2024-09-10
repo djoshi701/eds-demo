@@ -195,7 +195,7 @@ const Picker = props => {
             // Get configs and select default config
             let configs = {};
             try {
-                const finalConf = selectedConfig ?? defaultConfig
+                const finalConf = state.selectedConfig ?? defaultConfig
 
                 let confFile = '/configs.json';
                 if (finalConf !== 'prod') {
@@ -253,7 +253,7 @@ const Picker = props => {
                 },
             }));
         })();
-    }, [selectedConfig]);
+    }, [state.selectedConfig]);
 
     useEffect(() => {
         (async () => {
