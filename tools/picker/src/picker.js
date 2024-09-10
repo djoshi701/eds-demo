@@ -11,6 +11,10 @@ import Settings from '@spectrum-icons/workflow/Settings';
 const Picker = props => {
     const { blocks, getItems, getCategories, defaultConfig } = props;
 
+    const confFile = '/configs.json';
+    const confFileStage = '/configs-stage.json';
+    const confFileDev = '/configs-dev.json';
+
     const [state, setState] = useState({
         items: {},
         configs: {},
@@ -195,20 +199,20 @@ const Picker = props => {
             // Get configs and select default config
             let configs = {};
             try {
-                const finalConf = state.selectedConfig ?? defaultConfig
-
-                let confFile = '/configs.json';
-                if (finalConf !== 'prod') {
-                    confFile = '/configs-'+finalConf+'.json';
-                }
-
-                const envConfs = await fetch(confFile).then(r => r.json());
-
-                configs = {
-                    dev: envConfs,
-                    stage: envConfs,
-                    prod: envConfs
-                }
+                const prodConfig = fetch(confFile).then(r => r.json());
+                const stageConfig = fetch(confFileStage).then(r => r.json());
+                const devConfig = fetch(confFileDev).then(r => r.json());
+                Promise.all([prodConfig, stageConfig, devConfig])
+                  .then(([prod, stage, dev]) => {
+                      configs = {
+                          dev: dev,
+                          stage: stage,
+                          prod: prod
+                      }
+                  })
+                  .catch(error => {
+                      console.error(error);
+                  });
             } catch (err) {
                 console.error(err);
                 setState(state => ({
@@ -253,7 +257,7 @@ const Picker = props => {
                 },
             }));
         })();
-    }, [state.selectedConfig]);
+    }, []);
 
     useEffect(() => {
         (async () => {
