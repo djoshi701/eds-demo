@@ -23968,15 +23968,14 @@ const Picker = (props)=>{
                     prodConfig,
                     stageConfig,
                     devConfig
-                ]).then(([prod, stage, dev])=>{
-                    configs = {
-                        dev: dev,
-                        stage: stage,
-                        prod: prod
-                    };
-                }).catch((error)=>{
+                ]).catch((error)=>{
                     console.error(error);
                 });
+                configs = {
+                    dev: devConfig,
+                    stage: stageConfig,
+                    prod: prodConfig
+                };
             } catch (err) {
                 console.error(err);
                 setState((state)=>({
@@ -24102,17 +24101,17 @@ const Picker = (props)=>{
                 children: renderErrorState()
             }, void 0, false, {
                 fileName: "src/picker.js",
-                lineNumber: 342,
+                lineNumber: 341,
                 columnNumber: 17
             }, undefined)
         }, void 0, false, {
             fileName: "src/picker.js",
-            lineNumber: 341,
+            lineNumber: 340,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/picker.js",
-        lineNumber: 340,
+        lineNumber: 339,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.Provider), {
@@ -24135,17 +24134,17 @@ const Picker = (props)=>{
                                 children: key
                             }, key, false, {
                                 fileName: "src/picker.js",
-                                lineNumber: 358,
+                                lineNumber: 357,
                                 columnNumber: 25
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/picker.js",
-                        lineNumber: 352,
+                        lineNumber: 351,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/picker.js",
-                    lineNumber: 351,
+                    lineNumber: 350,
                     columnNumber: 36
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.View), {
@@ -24160,12 +24159,12 @@ const Picker = (props)=>{
                                 onPress: toggleSettings,
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _settingsDefault.default), {}, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 364,
+                                    lineNumber: 363,
                                     columnNumber: 90
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/picker.js",
-                                lineNumber: 364,
+                                lineNumber: 363,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.Picker), {
@@ -24179,12 +24178,12 @@ const Picker = (props)=>{
                                         children: block.name
                                     }, block.key, false, {
                                         fileName: "src/picker.js",
-                                        lineNumber: 373,
+                                        lineNumber: 372,
                                         columnNumber: 29
                                     }, undefined)
                             }, void 0, false, {
                                 fileName: "src/picker.js",
-                                lineNumber: 365,
+                                lineNumber: 364,
                                 columnNumber: 21
                             }, undefined),
                             currentBlock.selection === "multiple" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.ActionButton), {
@@ -24193,23 +24192,23 @@ const Picker = (props)=>{
                                 onPress: ()=>copyToClipboard(state.selectedItems),
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _copyDefault.default), {}, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 378,
+                                    lineNumber: 377,
                                     columnNumber: 192
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/picker.js",
-                                lineNumber: 378,
+                                lineNumber: 377,
                                 columnNumber: 63
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/picker.js",
-                        lineNumber: 363,
+                        lineNumber: 362,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/picker.js",
-                    lineNumber: 362,
+                    lineNumber: 361,
                     columnNumber: 13
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.Breadcrumbs), {
@@ -24219,12 +24218,12 @@ const Picker = (props)=>{
                             children: c.name
                         }, c.key, false, {
                             fileName: "src/picker.js",
-                            lineNumber: 382,
+                            lineNumber: 381,
                             columnNumber: 38
                         }, undefined))
                 }, void 0, false, {
                     fileName: "src/picker.js",
-                    lineNumber: 381,
+                    lineNumber: 380,
                     columnNumber: 13
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.ListView), {
@@ -24248,14 +24247,14 @@ const Picker = (props)=>{
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _folderDefault.default), {}, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 401,
+                                    lineNumber: 400,
                                     columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.Text), {
                                     children: item.name
                                 }, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 402,
+                                    lineNumber: 401,
                                     columnNumber: 29
                                 }, undefined),
                                 item.childCount > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.Text), {
@@ -24266,7 +24265,7 @@ const Picker = (props)=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 403,
+                                    lineNumber: 402,
                                     columnNumber: 53
                                 }, undefined),
                                 currentBlock.selection === "single" && (currentBlock.type === "any" || currentBlock.type === "folder") && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.ActionButton), {
@@ -24274,18 +24273,18 @@ const Picker = (props)=>{
                                     onPress: ()=>copyToClipboard(item.key),
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _copyDefault.default), {}, void 0, false, {
                                         fileName: "src/picker.js",
-                                        lineNumber: 404,
+                                        lineNumber: 403,
                                         columnNumber: 210
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 404,
+                                    lineNumber: 403,
                                     columnNumber: 136
                                 }, undefined)
                             ]
                         }, item.key, true, {
                             fileName: "src/picker.js",
-                            lineNumber: 400,
+                            lineNumber: 399,
                             columnNumber: 32
                         }, undefined);
                         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.Item), {
@@ -24297,7 +24296,7 @@ const Picker = (props)=>{
                                     objectFit: "contain"
                                 }, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 409,
+                                    lineNumber: 408,
                                     columnNumber: 67
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.Text), {
@@ -24307,12 +24306,12 @@ const Picker = (props)=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "src/picker.js",
-                                        lineNumber: 410,
+                                        lineNumber: 409,
                                         columnNumber: 31
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 410,
+                                    lineNumber: 409,
                                     columnNumber: 25
                                 }, undefined),
                                 currentBlock.selection === "single" && (currentBlock.type === "any" || currentBlock.type === "item") && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpectrum.ActionButton), {
@@ -24320,35 +24319,35 @@ const Picker = (props)=>{
                                     onPress: ()=>copyToClipboard(item.key),
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _copyDefault.default), {}, void 0, false, {
                                         fileName: "src/picker.js",
-                                        lineNumber: 411,
+                                        lineNumber: 410,
                                         columnNumber: 204
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/picker.js",
-                                    lineNumber: 411,
+                                    lineNumber: 410,
                                     columnNumber: 130
                                 }, undefined)
                             ]
                         }, item.key, true, {
                             fileName: "src/picker.js",
-                            lineNumber: 408,
+                            lineNumber: 407,
                             columnNumber: 28
                         }, undefined);
                     }
                 }, void 0, false, {
                     fileName: "src/picker.js",
-                    lineNumber: 384,
+                    lineNumber: 383,
                     columnNumber: 13
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/picker.js",
-            lineNumber: 350,
+            lineNumber: 349,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "src/picker.js",
-        lineNumber: 349,
+        lineNumber: 348,
         columnNumber: 12
     }, undefined);
 };
